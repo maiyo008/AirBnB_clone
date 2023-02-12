@@ -16,7 +16,7 @@ class TestFileStorage(unittest.TestCase):
             pass
 
     def test_all_method(self):
-        self.file_storage.new({"object1": {"id": 1}})
+        self.file_storage.new()
         result = self.file_storage.all()
         self.assertEqual(result, {"object1": {"id": 1}})
 
