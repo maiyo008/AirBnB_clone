@@ -6,6 +6,12 @@ import cmd
 from models.base_model import BaseModel
 import models
 import sys
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -15,7 +21,14 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
-    classes = ["BaseModel", "User", "State", "City", "Amenity", "Place"]
+    class_dict = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place
+    }
 
     def do_quit(self, line):
         """
@@ -38,25 +51,20 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
-        from models.user import User
-        from models.state import State
-        from models.city import City
-        from models.amenity import Amenity
-        from models.place import Place
-        from models.review import Review
         """
         Creates a new instance of BaseModel, saves it (to the JSON file)
         and prints the id
         """
         lines = line.split()
+        class_name = lines[0]
         if not line:
             print("** class name missing **")
             return
-        elif lines[0] not in HBNBCommand.classes:
+        elif class_name not in HBNBCommand.class_dict:
             print("** class doesn't exist **")
             return
         else:
-            new_instance = eval(lines[0])()
+            new_instance = HBNBCommand.class_dict[class_name]()
             new_instance.save()
             print(new_instance.id)
 
