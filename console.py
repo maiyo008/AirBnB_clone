@@ -29,6 +29,7 @@ class HBNBCommand(cmd.Cmd):
         "Amenity": Amenity,
         "Place": Place
     }
+    instances = {}
 
     def do_quit(self, line):
         """
@@ -67,6 +68,13 @@ class HBNBCommand(cmd.Cmd):
             new_instance = HBNBCommand.class_dict[class_name]()
             new_instance.save()
             print(new_instance.id)
+            try:
+                if class_name in HBNBCommand.instances:
+                    HBNBCommand.instances[class_name].append(new_instance)
+                else:
+                    HBNBCommand.instances[class_name] = [new_instance]
+            except KeyError:
+                print(f"Error: class {class_name} not found")
 
     def do_show(self, line):
         """
@@ -77,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print("** class name missing **")
             return
-        elif lines[0] not in HBNBCommand.classes:
+        elif lines[0] not in HBNBCommand.class_dict:
             print("** class doesn't exist **")
             return
         elif len(lines) < 2:
@@ -102,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print("** class name missing **")
             return
-        elif lines[0] not in HBNBCommand.classes:
+        elif lines[0] not in HBNBCommand.class_dict:
             print("** class doesn't exist **")
             return
         elif len(lines) < 2:
@@ -127,7 +135,7 @@ class HBNBCommand(cmd.Cmd):
                 k = key.split(".")
                 output = "[{}] ({}) {}".format(k[0], k[1], value)
                 print(output)
-        elif lines[0] not in HBNBCommand.classes:
+        elif lines[0] not in HBNBCommand.class_dict:
             print("** class doesn't exist **")
             return
         else:
@@ -145,7 +153,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print("** class name missing **")
             return
-        elif lines[0] not in HBNBCommand.classes:
+        elif lines[0] not in HBNBCommand.class_dict:
             print("** class doesn't exist **")
             return
         elif len(lines) < 2:
@@ -176,6 +184,19 @@ class HBNBCommand(cmd.Cmd):
                             value[lines[2]] = str(lines[3])
                     models.storage.save()
 
+    def default(self, line):
+        """
+        Prints the number of instances of a specified class
+        Usage: <class name>.count()
+        """
+
+        try:
+            args = line.split('.')
+            class_name = args[0]
+            count = len(HBNBCommand.instances[class_name])
+            print(count)
+        except (KeyError, IndexError):
+            print(f"Error: class {class_name} not found or invalid syntax")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
