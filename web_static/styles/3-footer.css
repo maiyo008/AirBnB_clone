@@ -11,6 +11,8 @@ footer {
 	bottom: 0;
 }
 
-.best-school {
-	margin-left: 5px;
+footer span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
