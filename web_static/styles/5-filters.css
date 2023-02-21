@@ -3,25 +3,25 @@
     width: 25%;
     float: left;
     border-right: 1px solid #DDDDDD;
-    overflow: hidden;
+    position: relative;
   }
   
   .amenities{
     height: 100%;
     width: 25%;
     float: left;
+    position: relative;
   }
   
   .amenities h3, .locations h3{
     font-weight: 600;
-    position: relative;
-    left: 29%;
+    margin-bottom: 0;
+    text-indent: 40px;
   }
   
   .amenities h4,.locations h4{
     font-weight: 400;
     font-size: 14px;
-    position: relative;
-    left: 29%;
-    bottom: 25%;
+    margin-top: 0;
+    text-indent: 40px;
   }

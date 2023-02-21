@@ -1,0 +1,28 @@
+.popover{
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+
+ul.popover, .popover ul{
+    list-style-type: none;
+    padding-left: 0;
+    text-indent: 40px;
+}
+
+.popover h2{
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.locations:hover .popover,
+.amenities:hover .popover {
+display: block;
+}
+
