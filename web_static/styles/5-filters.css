@@ -1,24 +1,27 @@
-.filters {
-    display: flex;
-    align-items: stretch;
+.locations{
+  height: 100%;
+  width: 25%;
+  float: left;
+  border-right: 1px solid #DDDDDD;
+  overflow: hidden;
 }
 
-.locations {
-    width: 25%;
-    border-right: 1px solid #DDDDDD;
-    padding: 10px;
+.amenities{
+  height: 100%;
+  width: 25%;
+  float: left;
 }
 
-.amenities {
-    width: 25%;
-    padding: 10px;
+.amenities h3, .locations h3{
+  font-weight: 600;
+  position: relative;
+  left: 29%;
 }
 
-h3 {
-    font-weight: 600;
-}
-
-h4 {
-    font-weight: 400;
-    font-size: 14px;
+.amenities h4,.locations h4{
+  font-weight: 400;
+  font-size: 14px;
+  position: relative;
+  left: 29%;
+  bottom: 25%;
 }
