@@ -1,27 +1,27 @@
 .locations{
-  height: 100%;
-  width: 25%;
-  float: left;
-  border-right: 1px solid #DDDDDD;
-  overflow: hidden;
-}
-
-.amenities{
-  height: 100%;
-  width: 25%;
-  float: left;
-}
-
-.amenities h3, .locations h3{
-  font-weight: 600;
-  position: relative;
-  left: 29%;
-}
-
-.amenities h4,.locations h4{
-  font-weight: 400;
-  font-size: 14px;
-  position: relative;
-  left: 29%;
-  bottom: 25%;
-}
+    height: 100%;
+    width: 25%;
+    float: left;
+    border-right: 1px solid #DDDDDD;
+    overflow: hidden;
+  }
+  
+  .amenities{
+    height: 100%;
+    width: 25%;
+    float: left;
+  }
+  
+  .amenities h3, .locations h3{
+    font-weight: 600;
+    position: relative;
+    left: 29%;
+  }
+  
+  .amenities h4,.locations h4{
+    font-weight: 400;
+    font-size: 14px;
+    position: relative;
+    left: 29%;
+    bottom: 25%;
+  }
