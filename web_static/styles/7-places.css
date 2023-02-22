@@ -1,0 +1,26 @@
+.places h1{
+    font-size: 30px;
+}
+
+.places article{
+    width: 390px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    float: left;
+    position: relative;
+    left: 20px;
+    right: 20px;
+}
+
+.places article h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+.places article:nth-child(4) {
+   position: relative;
+   left: 23%;
+   top: 20px;
+  }
